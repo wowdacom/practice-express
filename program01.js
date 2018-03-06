@@ -5,7 +5,15 @@ var process = require('process')
 var app = express()
 var port = process.argv[2]
 
+app.get('/', function(req, res) {
+  res.redirect(301, '/home')
+})
+
 app.get('/home', function(req, res) {
   res.end('Hello World!')
 })
-app.listen(port)
+
+if (!module.parent) {
+  app.listen(port)
+  console.log(`Express started on port ${port}`);
+}
