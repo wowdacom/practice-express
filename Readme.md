@@ -1,4 +1,7 @@
- » To print these instructions again, run: expressworks print
+指令: expressworks 
+參考github: https://github.com/expressjs/express
+
+» To print these instructions again, run: expressworks print
  » To execute your program in a test environment, run: expressworks run program.js
  » To verify your program, run: expressworks verify program.js
  » For help run: expressworks help
