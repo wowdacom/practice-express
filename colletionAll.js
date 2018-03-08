@@ -20,6 +20,7 @@
 // }
 
 //#program02
+
 // var express = require('express')
 // var app = express()
 // var port = process.argv[2]
@@ -72,22 +73,52 @@
 //
 //program06
 
+// var express = require('express')
+// var app = express()
+// var port = process.argv[2]
+//
+// app.param('id', (req, res, next, id)=>{
+//   req.id = id
+//   next()
+// })
+//
+// app.put('/message/:id', (req, res, next)=>{
+//   var result = require('crypto')
+//       .createHash('sha1')
+//       .update(new Date().toDateString() + req.id)
+//       .digest('hex')
+//   res.send(result)
+//   next()
+// })
+//
+// app.listen(port)
+//
+//program7
+
 var express = require('express')
 var app = express()
+
 var port = process.argv[2]
 
-app.param('id', (req, res, next, id)=>{
-  req.id = id
-  next()
+app.get('/search', (req, res)=>{
+  res.send(req.query)
 })
 
-app.put('/message/:id', (req, res, next)=>{
-  var result = require('crypto')
-      .createHash('sha1')
-      .update(new Date().toDateString() + req.id)
-      .digest('hex')
-  res.send(result)
-  next()
+app.listen(port)
+
+//program8
+var express = require('express')
+var fs = require('fs')
+var app = express()
+var port = process.argv[2]
+var fileToRead = process.argv[3]
+
+app.get('/books', (req, res)=>{
+  fs.readFile(fileToRead, 'utf8', (err, data)=>{
+    if (err) throw err
+    var result = JSON.parse(data)
+    res.json(result)
+  })
 })
 
 app.listen(port)
