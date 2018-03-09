@@ -94,17 +94,17 @@
 // app.listen(port)
 //
 //program7
-
-var express = require('express')
-var app = express()
-
-var port = process.argv[2]
-
-app.get('/search', (req, res)=>{
-  res.send(req.query)
-})
-
-app.listen(port)
+//
+// var express = require('express')
+// var app = express()
+//
+// var port = process.argv[2]
+//
+// app.get('/search', (req, res)=>{
+//   res.send(req.query)
+// })
+//
+// app.listen(port)
 
 //program8
 var express = require('express')
@@ -113,7 +113,7 @@ var app = express()
 var port = process.argv[2]
 var fileToRead = process.argv[3]
 
-app.get('/books', (req, res)=>{
+app.get('/books', (req, res) => {
   fs.readFile(fileToRead, 'utf8', (err, data)=>{
     if (err) throw err
     var result = JSON.parse(data)
